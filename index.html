@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta name="description" content="Tus entregas y retos pendientes de ASIR.">
+  <title>ASIR · En marcha</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="ASIR en marcha, inicio"><span class="brand-mark">A</span><span>asir<span class="brand-light">/en marcha</span></span></a>
+      <div class="top-actions"><span class="course-pill"><i></i> ASIR 1.º · 2026—27</span><button class="avatar" title="Tu espacio">T</button></div>
+    </header>
+
+    <main id="inicio">
+      <section class="hero">
+        <div class="hero-copy"><p class="eyebrow"><span class="eyebrow-line"></span> TU CENTRO DE MANDO</p>
+          <h1>Un paso cada<br><em>semana.</em></h1>
+          <p class="intro">Entregas y retos de ASIR en un solo sitio.<br class="desktop-only"> Con sus fechas y lo que aún está por confirmar.</p>
+          <div class="hero-buttons"><button class="button button-dark" id="addTop"><span>＋</span> Añadir entregable</button><button class="text-button" id="weekLink">Ver calendario <span>↘</span></button></div>
+        </div>
+        <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="sun"></div><div class="art-card"><span class="art-label">SIGUIENTE ENTREGA</span><strong>21<span>·</span>11</strong><small>MARCAS · ASIR 1.º</small><div class="art-progress"><i></i></div></div><div class="art-note">un día<br>cada vez <span>↗</span></div><div class="spark spark-a">✳</div><div class="spark spark-b">✳</div></div>
+      </section>
+
+      <section class="stats" aria-label="Resumen"><div class="stat"><span class="stat-number" id="statUpcoming">—</span><span class="stat-label">entregables pendientes</span></div><div class="stat"><span class="stat-number" id="statDeadlines">—</span><span class="stat-label">con fecha próxima</span></div><div class="stat"><span class="stat-number" id="statConfirm">—</span><span class="stat-label">por confirmar</span></div><div class="stats-note"><span class="tiny-sun">✳</span> Tu progreso se guarda en este dispositivo.</div></section>
+
+      <section class="calendar-section" id="calendario">
+        <div class="section-heading"><div><p class="eyebrow">02 — CLASES ONLINE · HORA PENINSULAR</p><h2>Mi calendario ASIR <span>· 19–25 oct 2026</span></h2></div></div>
+        <div class="calendar-grid">
+          <article class="calendar-day empty-day"><div class="calendar-day-head"><span>Lunes</span><time>19 oct</time></div><p>Sin clases identificadas</p></article>
+          <article class="calendar-day"><div class="calendar-day-head"><span>Martes</span><time>20 oct</time></div><div class="class-slot"><time>12:00–13:00</time><strong>Gestión de bases de datos</strong><p>Diagrama E/R</p></div><div class="class-slot"><time>13:00–14:00</time><strong>IPE I</strong><p>Clase quincenal</p></div></article>
+          <article class="calendar-day"><div class="calendar-day-head"><span>Miércoles</span><time>21 oct</time></div><div class="class-slot"><time>16:00–17:00</time><strong>Fundamentos de hardware</strong><p>Ejecutar Cinebench y comentar resultados</p></div><div class="class-slot"><time>19:00–20:00</time><strong>Planificación y administración de redes</strong><p>Binario y hexadecimal</p></div></article>
+          <article class="calendar-day"><div class="calendar-day-head"><span>Jueves</span><time>22 oct</time></div><div class="class-slot"><time>12:00–13:00</time><strong>Lenguajes de marcas</strong><p>Abrir un SVG en un editor de texto</p></div><div class="class-slot mandatory"><time>17:00–19:00</time><strong>Implantación de sistemas operativos</strong><p>VirtualBox y máquina virtual preparados · obligatorio</p></div></article>
+          <article class="calendar-day empty-day weekend-day"><div class="calendar-day-head"><span>Viernes–domingo</span><time>23–25 oct</time></div><p>Sin clases identificadas</p></article>
+        </div>
+        <div class="calendar-summary"><div><strong>7 h</strong><span>clases previstas</span></div><div><strong>0</strong><span>entregables confirmados esta semana</span></div><p>Próxima clase de Programación: martes 27/10, de 13:00 a 14:00. Lleva Python, PyCharm y tu primer programa preparados.</p></div>
+        <p class="calendar-footnote">Calendario basado en los horarios y avisos compartidos; no está sincronizado con Explora. La asistencia a clases en directo es opcional. Marcas mantiene la discrepancia entre el 21/10 de la plataforma y el plazo comunicado del 21/11.</p>
+      </section>
+
+      <section class="work-section" id="tareas">
+        <div class="section-heading work-heading"><div><p class="eyebrow">03 — ENTREGABLES</p><h2>Retos y entregas</h2></div><div class="view-switch" role="tablist" aria-label="Filtrar entregables"><button class="view-tab active" data-filter="all" role="tab">Todos <span id="countAll"></span></button><button class="view-tab" data-filter="pending" role="tab">Pendientes</button><button class="view-tab" data-filter="uncertain" role="tab">Por confirmar</button><button class="view-tab" data-filter="done" role="tab">Entregados <span id="countDone"></span></button></div></div>
+        <div class="task-list" id="taskList"></div>
+      </section>
+    </main>
+    <footer><span>ASIR / EN MARCHA</span><span>Hecho para estudiar con la cabeza despejada <b>✳</b></span></footer>
+  </div>
+
+    <dialog id="taskDialog"><form method="dialog" id="taskForm"><div class="dialog-head"><div><p class="eyebrow">AÑADIR A TU AGENDA</p><h2>Nuevo entregable</h2></div><button class="close-button" value="cancel" aria-label="Cerrar">×</button></div><label>¿Qué tienes que entregar?<input name="title" required maxlength="100" placeholder="Ej. Reto 1"></label><div class="form-row"><label>Módulo<select name="subject"><option>Implantación</option><option>Redes</option><option>Hardware</option><option>Bases de datos</option><option>Marcas</option><option>IPE</option><option>Programación</option><option>General</option></select></label><label>Fecha<input name="date" type="date"></label></div><label class="check-label"><input name="uncertain" type="checkbox"> La fecha o el dato está por confirmar</label><label>Notas (opcional)<textarea name="notes" rows="2" placeholder="Enlace, instrucciones o contexto"></textarea></label><button class="button button-dark submit-button" value="default">Guardar entregable <span>↗</span></button></form></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
